@@ -29,73 +29,51 @@ int changeNumber(int);
 int int2Roman();
 int roman2Int();
 
-const int MAX_NUM = 20;
-const string romanNums[] = {" ", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
-                            "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX"};
-
 int main()
 {
-    // int option;
-    // option = printMenu();
-    // changeNumber(option);
-    // return 0;
-    int decNum; // The user entered decimal number to be converted
-    cout << "Decimal to Roman Numeral Converter \n";
-    decNum = getValidNum();
-
-    while (decNum != 0) // While the end sentinel has not been entered, process the number
-    {
-        cout << "The roman numeral equivalent of " << decNum << " is " << romanNums[decNum] << "\n";
-        decNum = getValidNum();
-    }
+    int option;
+    option = printMenu();
+    changeNumber(option);
     return 0;
-}
-
-int getValidNum()
-{
-    int num;
-    cout << "\nEnter a decimal number 1-" << MAX_NUM << " (or 0 to quit): ";
-    cin >> num;
-
-    while (num < 0 || num > 20)
-    {
-        cout << "That is not a valid number.\n"
-             << "\nEnter a decimal number 1-" << MAX_NUM << ": ";
-        cin >> num;
-    }
-    return num;
-}
+}   
 
 int int2Roman()
 {
     int number;
-    string roman;
-
-    cout << "Enter -1 to quit" << endl;
+    string roman = "";
 
     do
     {
+        cout << "Enter Integer or 0 to quit" << endl;
         cin >> number;
+        if(number == 0){
+            break;
+        }
         //change number to roman and print out
 
         cout << "Roman equivalent: " << roman << endl;
-    } while (num == -1)
+    } while (number != 0);
+    return 0;
 }
 
 int roman2Int()
 {
-    int number;
-    string roman;
-
-    cout << "Enter -1 to quit" << endl;
+    int number, num;
+    string roman = "";
 
     do
     {
-        cin >> string;
+        cout << "Enter Roman numeral or q to quit" << endl;
+        cin >> roman;
+        if(roman == "q"){
+            break;
+        }
         //change number to roman and print out
 
         cout << "Integer equivalent: " << number << endl;
-    } while (num == -1)
+
+    } while (roman != "q");
+    return 0;
 }
 
 int changeNumber(int option)
@@ -110,6 +88,7 @@ int changeNumber(int option)
         roman2Int();
         break;
     }
+    return 0;
 }
 
 int printMenu()
@@ -117,9 +96,9 @@ int printMenu()
 
     int option;
     cout << "Select option 1 or 2" << endl;
-    cout << "1. Int to Roman" << endl;
-    cout << "2. Roman to Int" << endl;
+    cout << "1. Integer to Roman" << endl;
+    cout << "2. Roman to Integer" << endl;
     cin >> option;
 
-    retun option;
+    return option;
 }
