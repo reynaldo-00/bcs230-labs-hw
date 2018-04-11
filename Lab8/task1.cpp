@@ -28,8 +28,8 @@ return	0;
 bool	searchList(long	list[],	int	numElems,	long	value)
 {
 bool	found	=	false;
-//	ToDO		provide	implementation	of	the	linear	search	here
 
+//	ToDO		provide	implementation	of	the	linear	search	here
 for ( int i= 0; i < numElems; i++) {
     if (list[i] == value){
         found = true;
